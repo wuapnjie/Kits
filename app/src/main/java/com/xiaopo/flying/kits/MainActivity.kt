@@ -1,14 +1,15 @@
 package com.xiaopo.flying.kits
 
-import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import com.xiaopo.flying.photokit.Photo
+import com.xiaopo.flying.recyclerkit.AnotherAdapter
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.last_list
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,14 @@ class MainActivity : AppCompatActivity() {
       Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
           .setAction("Action", null).show()
     }
+
+    val adapter = AnotherAdapter()
+    adapter.with(String::class.java,TextBinder())
+    last_list.adapter = adapter
+    last_list.layoutManager = LinearLayoutManager(this)
+
+    val list = listOf("HHH","HHHH")
+    adapter.update(list)
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
