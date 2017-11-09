@@ -40,7 +40,7 @@ version = "0.0.1" // #修改# // 这里是aar的版本号
 
 android {
   compileSdkVersion 26
-  buildToolsVersion "26.0.0"
+  buildToolsVersion "27.0.1"
   resourcePrefix 'recyclerkits_'
 
   defaultConfig {

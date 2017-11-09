@@ -8,8 +8,7 @@ import android.view.ViewGroup
 /**
  * @author wupanjie
  */
-class AnotherAdapter(
-    val itemClickListener: ((item: Any, position: Int) -> Unit)? = null) : Adapter<ViewHolder>() {
+class AnotherAdapter : Adapter<ViewHolder>() {
   private var inflater: LayoutInflater? = null
 
   val items = arrayListOf<Any>()
@@ -56,12 +55,15 @@ class AnotherAdapter(
       val type = getItemViewType(position)
       val binder = binders[type]
       val item = items[position]
+
+      binder.adapter = this
       (binder as ItemBinder<Any, ViewHolder>)
           .bindViewHolder(holder, item)
 
-      itemClickListener?.let {
+      binder.itemClickListener?.let {
         holder.itemView.setOnClickListener {
-          itemClickListener.invoke(item, holder.adapterPosition)
+          (binder.itemClickListener as (item: Any, position: Int) -> Unit)
+              .invoke(item, holder.adapterPosition)
         }
       }
     }
