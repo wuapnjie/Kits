@@ -1,8 +1,10 @@
 package com.xiaopo.flying.recyclerkit
 
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView.Adapter
 import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 
 /**
@@ -11,7 +13,7 @@ import android.view.ViewGroup
 class AnotherAdapter : Adapter<ViewHolder>() {
   private var inflater: LayoutInflater? = null
 
-  val items = arrayListOf<Any>()
+  var items = arrayListOf<Any>()
   val types = arrayListOf<Class<*>>()
   val binders = arrayListOf<ItemBinder<*, *>>()
 
@@ -26,10 +28,10 @@ class AnotherAdapter : Adapter<ViewHolder>() {
     return this
   }
 
+  fun <T : Any> with(layoutResId: Int, clazz: Class<T>, render: View.(T) -> Unit) = with(clazz, itemBinder<T>(layoutResId, render))
+
   fun update(newData: List<Any>) {
-    items.clear()
-    items.addAll(newData)
-    notifyDataSetChanged()
+    updateAdapterWithDiffResult(calculateDiff(newData))
   }
 
   fun insert(item: Any, position: Int) {
@@ -40,6 +42,13 @@ class AnotherAdapter : Adapter<ViewHolder>() {
       throw TypeNotBindException("can not find binder of this type : ${item.javaClass}")
     }
   }
+
+  private fun updateAdapterWithDiffResult(result: DiffUtil.DiffResult) {
+    result.dispatchUpdatesTo(this)
+  }
+
+  private fun calculateDiff(newItems: List<Any>) =
+      DiffUtil.calculateDiff(DiffUtilCallback(items, newItems))
 
   override fun getItemViewType(position: Int): Int {
     val item = items[position]

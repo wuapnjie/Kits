@@ -1,5 +1,5 @@
 ext.projectDescription = "Recycler Kits for Android"
-ext.projectVersion = '0.0.1'
+ext.projectVersion = '0.0.2'
 ext.projectName = "recycler-kit"
 
 apply from: rootProject.file('upload.gradle')

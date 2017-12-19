@@ -8,105 +8,10 @@
     tools:context="com.xiaopo.flying.kits.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/text_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:id="@+id/tv_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_five"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_six"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_seven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_eight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Hello"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_animate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="animate" />
-
-        <Button
-            android:id="@+id/btn_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="pause" />
-
-        <Button
-            android:id="@+id/btn_resume"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="resume" />
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
 
 </FrameLayout>
