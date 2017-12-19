@@ -1,1 +1,1 @@
-include ':app', ':photokit', ':recyclerkit', ':architecturekit'
+include ':app',  ':recyclerkit', ':animatekit'

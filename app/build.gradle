@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
   compileSdkVersion 26
-  buildToolsVersion "27.0.1"
+  buildToolsVersion "27.0.2"
   defaultConfig {
     applicationId "com.xiaopo.flying.kits"
     minSdkVersion 17
@@ -33,7 +33,6 @@ dependencies {
   testImplementation 'junit:junit:4.12'
   implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
   implementation "com.android.support:design:$support_version"
-  implementation project(':photokit')
   implementation project(':recyclerkit')
-  implementation project(':architecturekit')
+  implementation project(':animatekit')
 }
