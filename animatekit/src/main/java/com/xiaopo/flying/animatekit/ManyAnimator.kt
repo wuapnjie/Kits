@@ -12,7 +12,7 @@ import android.view.View
  */
 internal typealias Listener = () -> Unit
 
-fun animate(init: ManyAnimator.() -> Unit) = ManyAnimator.Controller(ManyAnimator().apply(init))
+fun quickAnimate(init: ManyAnimator.() -> Unit) = ManyAnimator.Controller(ManyAnimator().apply(init))
 
 class ManyAnimator {
 

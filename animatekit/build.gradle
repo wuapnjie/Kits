@@ -1,5 +1,5 @@
 ext.projectDescription = "Animator Kits for Android"
-ext.projectVersion = '0.0.1'
+ext.projectVersion = '0.0.4'
 ext.projectName = "animate-kit"
 
 apply from: rootProject.file('upload.gradle')

@@ -5,12 +5,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-  compileSdkVersion 26
+  compileSdkVersion 27
   buildToolsVersion "27.0.2"
   defaultConfig {
     applicationId "com.xiaopo.flying.kits"
-    minSdkVersion 17
-    targetSdkVersion 26
+    minSdkVersion 14
+    targetSdkVersion 27
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -33,6 +33,7 @@ dependencies {
   testImplementation 'junit:junit:4.12'
   implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
   implementation "com.android.support:design:$support_version"
+  implementation 'com.facebook.stetho:stetho:1.5.0'
   implementation project(':recyclerkit')
   implementation project(':animatekit')
 }

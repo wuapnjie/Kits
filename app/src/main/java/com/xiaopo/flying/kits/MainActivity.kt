@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    adapter.items = arrayListOf("HHH", "HHHH", "HHHHH")
+    adapter.refresh(arrayListOf<String>("HHH", "HHHH", "HHHHH"))
 
     text_list.with(adapter)
 //    text_list.layoutManager = LinearLayoutManager(this)

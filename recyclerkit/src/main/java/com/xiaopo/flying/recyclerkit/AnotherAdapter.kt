@@ -13,7 +13,7 @@ import android.view.ViewGroup
 class AnotherAdapter : Adapter<ViewHolder>() {
   private var inflater: LayoutInflater? = null
 
-  var items = arrayListOf<Any>()
+  private val items = arrayListOf<Any>()
   val types = arrayListOf<Class<*>>()
   val binders = arrayListOf<ItemBinder<*, *>>()
 
@@ -30,11 +30,16 @@ class AnotherAdapter : Adapter<ViewHolder>() {
 
   fun <T : Any> with(layoutResId: Int, clazz: Class<T>, render: View.(T) -> Unit) = with(clazz, itemBinder<T>(layoutResId, render))
 
-  fun update(newData: List<Any>) {
+  fun refresh(newData: List<Any>) {
+    items.clear()
+    items.addAll(newData)
+  }
+
+  fun update(newData: List<*>) {
     updateAdapterWithDiffResult(calculateDiff(newData))
   }
 
-  fun insert(item: Any, position: Int) {
+  fun <T : Any> insert(item: T, position: Int) {
     if (types.contains(item.javaClass)) {
       items.add(position, item)
       notifyItemInserted(position)
@@ -47,7 +52,7 @@ class AnotherAdapter : Adapter<ViewHolder>() {
     result.dispatchUpdatesTo(this)
   }
 
-  private fun calculateDiff(newItems: List<Any>) =
+  private fun calculateDiff(newItems: List<*>) =
       DiffUtil.calculateDiff(DiffUtilCallback(items, newItems))
 
   override fun getItemViewType(position: Int): Int {
